@@ -14,7 +14,7 @@ const cherry = {
     'price' : 3.99,
     'quantity' : 0,
     'productId' : 1,
-    'image' : 'assets/images/cherry.jpg',
+    'image' : '/images/cherry.jpg',
  }
 
  const orange = { 
@@ -22,7 +22,7 @@ const cherry = {
   'price' : 0.99,
   'quantity' : 0,
   'productId' : 2,
-  'image' : 'assets/images/orange.jpg',
+  'image' : '/images/orange.jpg',
 }
 
 const strawberry = { 
@@ -30,14 +30,12 @@ const strawberry = {
   'price' : 2.99,
   'quantity' : 0,
   'productId' : 3,
-  'image' : 'assets/images/strawberry.jpg',
+  'image' : '/images/strawberry.jpg',
 }
 
-/* Images provided in /images folder. All images from Unsplash.com
-   - cherry.jpg by Mae Mu
-   - orange.jpg by Mae Mu
-   - strawberry.jpg by Allec Gomes
-*/
+products.push(cherry);
+products.push(orange);
+products.push(strawberry);
 
 /* Declare an empty array named cart to hold the items in the cart */
 let cart = [];
@@ -119,7 +117,7 @@ const emptyCart = () => {
   Hint: cartTotal function gives us cost of all the products in the cart  
 */
 const pay = (amount) => {
-  
+
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
