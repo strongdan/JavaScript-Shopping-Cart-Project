@@ -42,7 +42,7 @@ let cart = [];
 const addProductToCart = (productId) => {
   for (product of products){
     if (product.productId === productId){
-      if (cart.indexOf(product) > 0){
+      if (cart.includes(product)){
         product.quantity += 1;
       } else {
         cart.push(product)
