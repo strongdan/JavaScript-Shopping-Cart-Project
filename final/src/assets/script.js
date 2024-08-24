@@ -95,9 +95,13 @@ const removeProductFromCart = (productId) => {
   Hint: price and quantity can be used to determine total cost
 */
 const cartTotal = () => {
-  const total = cart.reduce((accumulator, product) => accumulator + product.price, 0);
+  let total = 0;
 
-  return total;
+  for (const product of cart){
+    total += product.price * product.quantity;
+  }
+  
+  return total.toFixed(2);
 }
 
 /* Create a function called emptyCart that empties the products from the cart */
@@ -112,7 +116,7 @@ const emptyCart = () => {
   Hint: cartTotal function gives us cost of all the products in the cart  
 */
 const pay = (amount) => {
-  const balance = cartTotal() - amount;
+  const balance = amount - cartTotal();
   return balance.toFixed(2);
 }
 
