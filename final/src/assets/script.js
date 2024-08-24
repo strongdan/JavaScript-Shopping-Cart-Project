@@ -57,9 +57,11 @@ const addProductToCart = (productId) => {
   - increaseQuantity should then increase the product's quantity
 */
 const increaseQuantity = (productId) => {
-  const product = products.productId;
-
-  product.quantity += 1;
+  for (product of products){
+    if (product.productId === productId){
+      product.quantity += 1;
+    }
+  }
 }
 
 /* Create a function named decreaseQuantity that takes in the productId as an argument
@@ -69,12 +71,13 @@ const increaseQuantity = (productId) => {
 */
 
 const decreaseQuantity = (productId) => {
-  for (const product of products){
+  for (const product of cart){
     if (product.productId === productId){
       if (product.quantity > 0){
         product.quantity -= 1;
-      } else {
-        cart.pop(product);
+      } 
+      if (product.quantity === 0){
+        removeProductFromCart(product.productId);
       }
     }
   }
@@ -106,7 +109,7 @@ const cartTotal = () => {
     total += product.price * product.quantity;
   }
   
-  return Number(total.toFixed(2));
+  return total;
 }
 
 /* Create a function called emptyCart that empties the products from the cart */
