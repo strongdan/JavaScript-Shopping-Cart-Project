@@ -10,7 +10,9 @@
   "author": "",
   "license": "SEE LICENSE IN LICENSE.md",
   "dependencies": {
-    "jest": "^27.5.1",
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }

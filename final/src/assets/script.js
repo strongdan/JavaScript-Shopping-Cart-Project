@@ -1,14 +1,8 @@
+
+
 /* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
 let products = [];
 
-/* Create 3 or more product objects using object literal notation 
-   Each product should include five properties
-   - name: name of product (string)
-   - price: price of product (number)
-   - quantity: quantity in cart should start at zero (number)
-   - productId: unique id for the product (number)
-   - image: picture of product (url string)
-*/
 const cherry = { 
     'name' : 'cherry',
     'price' : 3.99,
@@ -46,12 +40,13 @@ let cart = [];
   - if the product is not already in the cart, add it to the cart
 */
 const addProductToCart = (productId) => {
-  const product = products.productId;
-
-  product.quantity += 1;
-
-  if (cart.indexOf(productId) === -1){
-    cart.push(productId)
+  for (product of products){
+    if (product.productId === productId){
+      product.quantity += 1;
+    }
+    if (cart.indexOf(product) === -1){
+      cart.push(product)
+    }
   }
 }
 
@@ -117,7 +112,8 @@ const emptyCart = () => {
   Hint: cartTotal function gives us cost of all the products in the cart  
 */
 const pay = (amount) => {
-
+  const balance = cartTotal() - amount;
+  return balance.toFixed(2);
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
