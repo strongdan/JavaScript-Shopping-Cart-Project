@@ -42,10 +42,11 @@ let cart = [];
 const addProductToCart = (productId) => {
   for (product of products){
     if (product.productId === productId){
-      product.quantity += 1;
-    }
-    if (cart.indexOf(product) === -1){
-      cart.push(product)
+      if (cart.indexOf(product) > 0){
+        product.quantity += 1;
+      } else {
+        cart.push(product)
+      }
     }
   }
 }
@@ -67,12 +68,13 @@ const increaseQuantity = (productId) => {
 */
 
 const decreaseQuantity = (productId) => {
-  const product = products.productId;
-
-  product.quantity -= 1;
-
-  if (product.quantity === 0){
-    cart.pop(product);
+  for (const product of products){
+    if (product.productId === productId){
+      product.quantity -= 1;
+      if (product.quantity === 0){
+        cart.pop(product);
+      }
+    }
   }
 }
 
@@ -82,11 +84,12 @@ const decreaseQuantity = (productId) => {
   - removeProductFromCart should remove the product from the cart
 */
 const removeProductFromCart = (productId) => {
-  const product = products.productId;
-
-  product.quantity = 0;
-
-  cart.pop(product);
+  for (const product of cart){
+    if (product.productId === productId){
+      product.quantity = 0;
+      cart.pop(product);
+    }
+  }
 }
 
 /* Create a function named cartTotal that has no parameters
