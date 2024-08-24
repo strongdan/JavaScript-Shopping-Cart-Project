@@ -70,8 +70,9 @@ const increaseQuantity = (productId) => {
 const decreaseQuantity = (productId) => {
   for (const product of products){
     if (product.productId === productId){
-      product.quantity -= 1;
-      if (product.quantity === 0){
+      if (product.quantity > 0){
+        product.quantity -= 1;
+      } else {
         cart.pop(product);
       }
     }
@@ -104,7 +105,7 @@ const cartTotal = () => {
     total += product.price * product.quantity;
   }
   
-  return total.toFixed(2);
+  return Number(total.toFixed(2));
 }
 
 /* Create a function called emptyCart that empties the products from the cart */
@@ -120,7 +121,7 @@ const emptyCart = () => {
 */
 const pay = (amount) => {
   const balance = amount - cartTotal();
-  return balance.toFixed(2);
+  return Number(balance.toFixed(2));
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
