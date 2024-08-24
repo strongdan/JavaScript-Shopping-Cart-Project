@@ -45,6 +45,7 @@ const addProductToCart = (productId) => {
       if (cart.includes(product)){
         product.quantity += 1;
       } else {
+        product.quantity = 1;
         cart.push(product)
       }
     }
