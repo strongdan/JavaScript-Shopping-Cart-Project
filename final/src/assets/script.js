@@ -1,29 +1,26 @@
 let totalPaid = 0;
-let products = [];
-
-const cherry = { 
+let products = [
+{   
     'name' : 'cherry',
     'price' : 3.99,
     'quantity' : 0,
     'productId' : 1,
     'image' : '/images/cherry.jpg',
- }
-
- const orange = { 
-  'name' : 'orange',
-  'price' : 0.99,
-  'quantity' : 0,
-  'productId' : 2,
-  'image' : '/images/orange.jpg',
-}
-
-const strawberry = { 
+ },
+ {  
+    'name' : 'orange',
+    'price' : 0.99,
+    'quantity' : 0,
+    'productId' : 2,
+    'image' : '/images/orange.jpg',
+},
+{
   'name' : 'strawberry',
   'price' : 2.99,
   'quantity' : 0,
   'productId' : 3,
   'image' : '/images/strawberry.jpg',
-}
+}]
 
 products.push(cherry);
 products.push(orange);
@@ -91,7 +88,7 @@ const emptyCart = () => {
 const pay = (amount) => {
   const balance = amount - cartTotal();
   totalPaid += balance;
-  return Number(balance.toFixed(2));
+  return Number.parseFloat(balance).toFixed(2);
 }
 
 module.exports = {
