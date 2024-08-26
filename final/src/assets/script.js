@@ -116,14 +116,23 @@ const emptyCart = () => {
 
 /**
 * @description Allows user to pay for items and get change
+* resets cart and totalPaid if no balance remaining
 * @method pay
 * @param {Number} amount
 * @return {Number} balance
 */
 const pay = (amount) => {
-  const balance = amount - cartTotal();
-  totalPaid += balance;
-  return Number.parseFloat(balance).toFixed(2);
+  
+  totalPaid += amount;
+
+  const remaining = totalPaid - cartTotal();
+
+  if (remaining >= 0){
+    emptyCart();
+    totalPaid = 0;
+  }
+
+  return remaining;
 }
 
 module.exports = {
