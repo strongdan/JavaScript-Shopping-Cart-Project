@@ -1,4 +1,5 @@
 let totalPaid = 0;
+
 let products = [
 {   
     'name' : 'cherry',
@@ -25,11 +26,10 @@ let products = [
 let cart = [];
 
 /**
-* Adds product to cart using the product ID
-* and updates product quantity if already in cart
+* @description Adds product to cart using the product ID and updates product quantity if already in cart
 * @method addProductToCart
-* @param {String} productId
-* @return null
+* @param {Number} productId
+* @returns null
 */
 const addProductToCart = (productId) => {
   const product = products.find((product) => product.productId === productId);
@@ -43,9 +43,9 @@ const addProductToCart = (productId) => {
 }
 
 /**
-* Increases quantity of product in cart
+* @description Increases quantity of product in cart
 * @method increaseQuantity
-* @param {String} productId
+* @param {Number} productId
 * @return null
 */
 const increaseQuantity = (productId) => {
@@ -57,8 +57,7 @@ const increaseQuantity = (productId) => {
 }
 
 /**
-* Reduces quantity of product in cart
-* and removes from cart if zero
+* @description Reduces quantity of product in cart and removes from cart if zero
 * @method decreaseQuantity
 * @param {String} productId
 * @return null
@@ -77,9 +76,9 @@ const decreaseQuantity = (productId) => {
 }
 
 /**
-* Removes product from cart array
+* @description Removes product from cart array
 * @method removeProductFromCart
-* @param {String} productId
+* @param {Number} productId
 * @return null
 */
 const removeProductFromCart = (productId) => {
@@ -92,7 +91,7 @@ const removeProductFromCart = (productId) => {
 }
 
 /**
-* Gets the total value of items in cart
+* @description Gets the total value of items in cart
 * @method cartTotal
 * @return integer total
 */
@@ -107,7 +106,7 @@ const cartTotal = () => {
 }
 
 /**
-* Removes all products from cart array
+* @description Removes all products from cart array
 * @method emptyCart
 * @return null
 */
@@ -116,7 +115,7 @@ const emptyCart = () => {
 }
 
 /**
-* Allows user to pay for items and get change
+* @description Allows user to pay for items and get change
 * @method pay
 * @param {Number} amount
 * @return {Number} balance
