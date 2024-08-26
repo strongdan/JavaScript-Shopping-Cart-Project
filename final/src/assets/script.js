@@ -24,17 +24,30 @@ let products = [
 
 let cart = [];
 
+/**
+* Adds product to cart using the product ID
+* and updates product quantity if already in cart
+* @method addProductToCart
+* @param {String} productId
+* @return null
+*/
 const addProductToCart = (productId) => {
   const product = products.find((product) => product.productId === productId);
   
   if (cart.includes(product)){
-    product.quantity += 1;
+    increaseQuantity(productId);
   } else {
     product.quantity = 1;
     cart.push(product)
   }
 }
 
+/**
+* Increases quantity of product in cart
+* @method increaseQuantity
+* @param {String} productId
+* @return null
+*/
 const increaseQuantity = (productId) => {
   for (product of products){
     if (product.productId === productId){
@@ -43,6 +56,13 @@ const increaseQuantity = (productId) => {
   }
 }
 
+/**
+* Reduces quantity of product in cart
+* and removes from cart if zero
+* @method decreaseQuantity
+* @param {String} productId
+* @return null
+*/
 const decreaseQuantity = (productId) => {
   for (const product of cart){
     if (product.productId === productId){
@@ -56,6 +76,12 @@ const decreaseQuantity = (productId) => {
   }
 }
 
+/**
+* Removes product from cart array
+* @method removeProductFromCart
+* @param {String} productId
+* @return null
+*/
 const removeProductFromCart = (productId) => {
   for (const product of cart){
     if (product.productId === productId){
@@ -65,6 +91,11 @@ const removeProductFromCart = (productId) => {
   }
 }
 
+/**
+* Gets the total value of items in cart
+* @method cartTotal
+* @return integer total
+*/
 const cartTotal = () => {
   let total = 0;
 
@@ -75,10 +106,21 @@ const cartTotal = () => {
   return total;
 }
 
+/**
+* Removes all products from cart array
+* @method emptyCart
+* @return null
+*/
 const emptyCart = () => {
   cart = [];
 }
 
+/**
+* Allows user to pay for items and get change
+* @method pay
+* @param {Number} amount
+* @return {Number} balance
+*/
 const pay = (amount) => {
   const balance = amount - cartTotal();
   totalPaid += balance;
