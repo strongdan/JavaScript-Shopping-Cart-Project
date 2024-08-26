@@ -132,7 +132,7 @@ const pay = (amount) => {
     totalPaid = 0;
   }
 
-  return remaining;
+  return Number(remaining.toFixed(2));
 }
 
 module.exports = {
