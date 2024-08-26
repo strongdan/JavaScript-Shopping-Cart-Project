@@ -69,7 +69,7 @@ const removeProductFromCart = (productId) => {
   for (const product of cart){
     if (product.productId === productId){
       product.quantity = 0;
-      cart.pop(product);
+      cart.splice(cart.indexOf(product), 1);
     }
   }
 }
