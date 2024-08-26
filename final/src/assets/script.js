@@ -22,22 +22,16 @@ let products = [
   'image' : '/images/strawberry.jpg',
 }]
 
-products.push(cherry);
-products.push(orange);
-products.push(strawberry);
-
 let cart = [];
 
 const addProductToCart = (productId) => {
-  for (product of products){
-    if (product.productId === productId){
-      if (cart.includes(product)){
-        product.quantity += 1;
-      } else {
-        product.quantity = 1;
-        cart.push(product)
-      }
-    }
+  const product = products.find((product) => product.productId === productId);
+  
+  if (cart.includes(product)){
+    product.quantity += 1;
+  } else {
+    product.quantity = 1;
+    cart.push(product)
   }
 }
 
